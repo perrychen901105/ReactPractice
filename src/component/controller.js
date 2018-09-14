@@ -16,11 +16,17 @@ class Uncontrolled extends React.Component {
         console.log(target.value)
     }
 
+    handleSubmit(e) {
+        e.preventDefault()
+
+        console.log(this.state.value);
+    }
+
     render() {
         return(
             <form>
                 <input type="text" onChange={this.handleChange}/>
-                <button>Submit</button>
+                <button onClick={this.handleSubmit}>Submit</button>
             </form>
         )
     }
