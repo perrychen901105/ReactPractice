@@ -1,38 +1,28 @@
 import React from 'react';
-class Uncontrolled extends React.Component {
+// const Controlled = () => (
+//     <form>
+//         {/* <input type="text" value="Hello React"/> */}
+//         <input type="text" defaultValue="Hello React"/>
+//         <button>Submit</button>
+//     </form>
+// )
+
+class Controlled extends React.Component {
     constructor(props) {
         super(props)
 
         this.state = {
-            // value: '',
-            firstName: '',
-            lastName: '',
+            firstName: "Dan",
+            lastName: "Abramov",
         }
 
-        // this.handleChangeFirstName = this.handleChangeFirstName.bind(this)
-        // this.handleChangeLastName = this.handleChangeLastName.bind(this)
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
-
     }
 
     handleChange({ target }) {
-        console.log(target.value)
-
         this.setState({
             [target.name]: target.value,
-        })
-    }
-
-    handleChangeFirstName({ target }) {
-        this.setState({
-            firstName: target.value,
-        })
-    }
-
-    handleChangeLastName({ target }) {
-        this.setState({
-            lastName: target.value,
         })
     }
 
@@ -45,23 +35,22 @@ class Uncontrolled extends React.Component {
     render() {
         return(
             <form onSubmit={this.handleSubmit}>
-                {/* <input type="text" onChange={this.handleChangeFirstName}/>
-                <input type="text" onChange={this.handleChangeLastName}/> */}
                 <input 
                     type="text"
                     name="firstName"
+                    value={this.state.firstName}
                     onChange={this.handleChange}
                 />
                 <input
                     type="text"
                     name="lastName"
+                    value={this.state.lastName}
                     onChange={this.handleChange}
                 />
                 <button>Submit</button>
             </form>
         )
     }
-
 }
 
-export default Uncontrolled;
+export default Controlled
